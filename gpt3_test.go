@@ -71,7 +71,7 @@ func TestRequestCreationFails(t *testing.T) {
 				}
 				return rsp, client.CompletionStream(ctx, gpt3.CompletionRequest{}, onData)
 			},
-			"Post \"https://api.openai.com/v1/engines/davinci/completions\": request error",
+			"Post \"https://api.openai.com/v1/completions\": request error",
 		}, {
 			"CompletionWithEngine",
 			func() (interface{}, error) {
@@ -87,7 +87,7 @@ func TestRequestCreationFails(t *testing.T) {
 				}
 				return rsp, client.CompletionStreamWithEngine(ctx, gpt3.AdaEngine, gpt3.CompletionRequest{}, onData)
 			},
-			"Post \"https://api.openai.com/v1/engines/ada/completions\": request error",
+			"Post \"https://api.openai.com/v1/completions\": request error",
 		}, {
 			"Edits",
 			func() (interface{}, error) {

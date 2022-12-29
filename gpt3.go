@@ -194,7 +194,8 @@ func (c *client) CompletionStreamWithEngine(
 	onData func(*CompletionResponse),
 ) error {
 	request.Stream = true
-	req, err := c.newRequest(ctx, "POST", fmt.Sprintf("/engines/%s/completions", engine), request)
+	request.Model = engine
+	req, err := c.newRequest(ctx, "POST", "/completions", request)
 	if err != nil {
 		return err
 	}

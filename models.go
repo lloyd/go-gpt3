@@ -34,9 +34,13 @@ type EnginesResponse struct {
 
 // CompletionRequest is a request for the completions API
 type CompletionRequest struct {
+	// ID of the model to use. You can use the List models API to see all of your available models, or see our Model overview for descriptions of them.
+	Model string `json:"model"`
 	// A list of string prompts to use.
 	// TODO there are other prompt types here for using token integers that we could add support for.
 	Prompt []string `json:"prompt"`
+	// The suffix that comes after a completion of inserted text.
+	Suffix string `json:"suffix"`
 	// How many tokens to complete up to. Max of 512
 	MaxTokens *int `json:"max_tokens,omitempty"`
 	// Sampling temperature to use
