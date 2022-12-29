@@ -40,7 +40,7 @@ type CompletionRequest struct {
 	// TODO there are other prompt types here for using token integers that we could add support for.
 	Prompt []string `json:"prompt"`
 	// The suffix that comes after a completion of inserted text.
-	Suffix string `json:"suffix"`
+	Suffix string `json:"suffix,omitempty"`
 	// How many tokens to complete up to. Max of 512
 	MaxTokens *int `json:"max_tokens,omitempty"`
 	// Sampling temperature to use
@@ -48,17 +48,17 @@ type CompletionRequest struct {
 	// Alternative to temperature for nucleus sampling
 	TopP *float32 `json:"top_p,omitempty"`
 	// How many choice to create for each prompt
-	N *int `json:"n"`
+	N *int `json:"n,omitempty"`
 	// Include the probabilities of most likely tokens
-	LogProbs *int `json:"logprobs"`
+	LogProbs *int `json:"logprobs,omitempty"`
 	// Echo back the prompt in addition to the completion
 	Echo bool `json:"echo"`
 	// Up to 4 sequences where the API will stop generating tokens. Response will not contain the stop sequence.
-	Stop []string `json:"stop,omitempty"`
+	Stop []string `json:"stop"`
 	// PresencePenalty number between 0 and 1 that penalizes tokens that have already appeared in the text so far.
-	PresencePenalty float32 `json:"presence_penalty"`
+	PresencePenalty float32 `json:"presence_penalty,omitempty"`
 	// FrequencyPenalty number between 0 and 1 that penalizes tokens on existing frequency in the text so far.
-	FrequencyPenalty float32 `json:"frequency_penalty"`
+	FrequencyPenalty float32 `json:"frequency_penalty,omitempty"`
 
 	// Whether to stream back results or not. Don't set this value in the request yourself
 	// as it will be overriden depending on if you use CompletionStream or Completion methods.

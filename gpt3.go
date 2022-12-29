@@ -338,6 +338,7 @@ func jsonBodyReader(body interface{}) (io.Reader, error) {
 	if body == nil {
 		return bytes.NewBuffer(nil), nil
 	}
+
 	raw, err := json.Marshal(body)
 	if err != nil {
 		return nil, fmt.Errorf("failed encoding json: %w", err)
